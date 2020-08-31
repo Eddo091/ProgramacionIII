@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        /*
         btnCalcular = (Button)findViewById(R.id.btnCalcular);
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +74,9 @@ public class MainActivity extends Activity {
             TextView temp = (TextView) findViewById(R.id.lblRespuesta);
             temp.setText("Por favor ingrese los numeros correspondientes.");
 
+
             Toast.makeText(getApplicationContext(),"Por favor ingrese los numeros.",Toast.LENGTH_LONG).show();
         }
+        */
     }
 }

@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Prueba</string>
+    <string name="numero">Numero</string>
+    <string name="respuesta">Respuesta: ?</string>
+    <string name="suma">Suma</string>
+    <string name="resta">Resta</string>
+    <string name="multiplicacion">Multiplicacion</string>
+    <string name="division">Division</string>
     <string-array name="operaciones">
         <item>Seleccione un elemento</item>
         <item>Suma</item>
