@@ -18,25 +18,105 @@
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content" >
+
+            </TabWidget>
 
             <FrameLayout
                 android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="788dp">
 
                 <LinearLayout
                     android:id="@+id/PestañaPrincipal"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="480dp"
+                    android:layout_height="854dp"
+                    android:addStatesFromChildren="false"
+                    android:clickable="false"
+                    android:clipChildren="false"
+                    android:keepScreenOn="false"
                     android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lblvalor"
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+
+                        android:lineSpacingExtra="8sp"
+                        android:text="@string/inserte_valor"
+                        android:textAllCaps="false"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textColor="#000000"
+                        android:textSize="24sp"
+                        android:typeface="serif"
+                        app:fontFamily="sans-serif" />
+
+                    <EditText
+                        android:id="@+id/txtn1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:ems="10"
+                        android:hint="@string/_0"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal" />
+
+                    <RadioGroup
+                        android:id="@+id/RbG"
+                        android:layout_width="222dp"
+                        android:layout_height="150dp" >
+
+                        <RadioButton
+                            android:id="@+id/RbEsme"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Esmeraldas" />
+
+                        <RadioButton
+                            android:id="@+id/RbZaf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Zafiro" />
+
+                        <RadioButton
+                            android:id="@+id/RbRubi"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Rubí" />
+
+                        <RadioButton
+                            android:id="@+id/RbCoins"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Depcoin" />
+
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/lblResp"
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+                        android:lineSpacingExtra="24sp"
+                        android:text="Respuesta: ?"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textColor="#000000"
+                        android:textSize="24sp"
+                        android:textStyle="italic"
+                        android:typeface="sans"
+                        app:fontFamily="sans-serif-black" />
+
+                    <Button
+                        android:id="@+id/BtnProcesar"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/btnProcesar" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/PestañaSecundaria"
-                    android:layout_width="80dp"
-                    android:layout_height="92dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                 </LinearLayout>

@@ -6,6 +6,10 @@
     <string name="resta">Resta</string>
     <string name="multiplicacion">Multiplicacion</string>
     <string name="division">Division</string>
+    <string name="btnCalcular">btnCalcular</string>
+    <string name="btnProcesar">Calcular</string>
+    <string name="inserte_valor">Inserte valor</string>
+    <string name="_0">0</string>
     <string-array name="operaciones">
         <item>Seleccione un elemento</item>
         <item>Suma</item>
