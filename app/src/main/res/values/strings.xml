@@ -10,6 +10,22 @@
     <string name="btnProcesar">Calcular</string>
     <string name="inserte_valor">Inserte valor</string>
     <string name="_0">0</string>
+    <string name="esmeraldas">Esmeraldas</string>
+    <string name="respuesta">Respuesta: ?</string>
+    <string name="zafiro">Zafiro</string>
+    <string name="rub">Rubí</string>
+    <string name="depcoin">Depcoin</string>
+    <string name="ingrese_valor">Ingrese valor</string>
+    <string name="_00">00</string>
+    <string name="convierte">Convierte</string>
+    <string name="respuestaa">Respuesta:???</string>
+    <string name="pie_cuadrado">Pie Cuadrado</string>
+    <string name="vara_cuadrada">Vara Cuadrada</string>
+    <string name="yarda_cuadrada">Yarda Cuadrada</string>
+    <string name="metro_cuadrado">Metro Cuadrado</string>
+    <string name="tareas">Tareas</string>
+    <string name="manzana">Manzana</string>
+    <string name="hectar_as">Hectaréas</string>
     <string-array name="operaciones">
         <item>Seleccione un elemento</item>
         <item>Suma</item>

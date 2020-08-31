@@ -63,40 +63,41 @@
                     <RadioGroup
                         android:id="@+id/RbG"
                         android:layout_width="222dp"
-                        android:layout_height="150dp" >
+                        android:layout_height="150dp">
 
                         <RadioButton
                             android:id="@+id/RbEsme"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Esmeraldas" />
+                            android:checked="true"
+                            android:text="@string/esmeraldas" />
 
                         <RadioButton
                             android:id="@+id/RbZaf"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Zafiro" />
+                            android:text="@string/zafiro" />
 
                         <RadioButton
                             android:id="@+id/RbRubi"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Rubí" />
+                            android:text="@string/rub" />
 
                         <RadioButton
                             android:id="@+id/RbCoins"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Depcoin" />
+                            android:text="@string/depcoin" />
 
                     </RadioGroup>
 
                     <TextView
-                        android:id="@+id/lblResp"
+                        android:id="@+id/lblRespuesta"
                         android:layout_width="match_parent"
                         android:layout_height="28dp"
                         android:lineSpacingExtra="24sp"
-                        android:text="Respuesta: ?"
+                        android:text="@string/respuesta"
                         android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                         android:textColor="#000000"
@@ -114,11 +115,96 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/PestañaSecundaria"
+                    android:id="@+id/ConversorSuperficie"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/txtValor"
+                        android:layout_width="match_parent"
+                        android:layout_height="28dp"
+                        android:lineSpacingExtra="24sp"
+                        android:text="@string/ingrese_valor"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:textSize="24sp"
+                        android:typeface="sans"
+                        app:fontFamily="sans-serif" />
+
+                    <EditText
+                        android:id="@+id/txtnum2"
+                        android:layout_width="416dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/_00"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal" />
+
+                    <RadioGroup
+                        android:id="@+id/RGSuperficie"
+                        android:layout_width="378dp"
+                        android:layout_height="252dp">
+
+                        <RadioButton
+                            android:id="@+id/RbPieCuad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="@string/pie_cuadrado" />
+
+                        <RadioButton
+                            android:id="@+id/RbVaraCua"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/vara_cuadrada" />
+
+                        <RadioButton
+                            android:id="@+id/RbYardaCua"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/yarda_cuadrada" />
+
+                        <RadioButton
+                            android:id="@+id/RbMetroCua"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/metro_cuadrado" />
+
+                        <RadioButton
+                            android:id="@+id/RbTareas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tareas" />
+
+                        <RadioButton
+                            android:id="@+id/RbManzana"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/manzana" />
+
+                        <RadioButton
+                            android:id="@+id/RbHecta"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hectar_as" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/txtRes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="24sp"
+                        android:text="@string/respuestaa"
+                        android:textColor="#000000"
+                        android:textSize="24sp"
+                        android:typeface="sans"
+                        app:fontFamily="sans-serif" />
+
+                    <Button
+                        android:id="@+id/BtnProc"
+                        android:layout_width="206dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/convierte" />
                 </LinearLayout>
 
             </FrameLayout>
