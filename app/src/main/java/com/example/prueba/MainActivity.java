@@ -1,82 +1,75 @@
 package com.example.prueba;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.net.wifi.aware.PublishConfig;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.RadioGroup;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
+import android.widget.Switch;
+import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
+
+import org.w3c.dom.Text;
+
+import java.util.Objects;
 
 public class MainActivity extends Activity {
     public Button btnCalcular;
+    TabHost TbhConversorUno_;
+    TabHost TbhConversorDos_;
+    Valores misvalores= new Valores();
+    EditText num1_;
+    EditText num2_;
+    TextView Resp_;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*
-        btnCalcular = (Button)findViewById(R.id.btnCalcular);
-        btnCalcular.setOnClickListener(new View.OnClickListener() {
+        num1_=findViewById( R.id.txtnum1_ );
+        num2_=findViewById( R.id.txtnum2_ );
+        Resp_=findViewById( R.id.lblrespuesta_ );
+        TbhConversorUno_=findViewById( R.id.TbhConversor );
+        TbhConversorUno_.setup();
+        TbhConversorUno_.addTab(TbhConversorUno_.newTabSpec("Monedas").setContent(R.id.TbhConversor).setIndicator("Monedas", null));
+        TbhConversorUno_.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
-            public void onClick(View view) {
-                procesar(view);
+            public void onTabChanged(String s) {
+                num1_.getText().clear();
+                Resp_.setText("");
             }
         });
     }
-    public void procesar(View vista){
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void Convertir(Valores view){
         try {
-            RadioGroup optOperaciones = (RadioGroup) findViewById(R.id.optOperaciones);
-            Spinner cboOperaciones = (Spinner)findViewById(R.id.cboOperaciones);
+            TextView tmpVal= (TextView) findViewById( R.id.txtnum1_ );
+            double cantidad = Double.parseDouble( tmpVal.getText().toString() );
+            int de = 0, a = 0;
+            double resp = 0;
 
-            TextView tempVal = (TextView) findViewById(R.id.txtnum1);
-            double num1 = Double.parseDouble(tempVal.getText().toString());
+            switch (Objects.requireNonNull( TbhConversorUno_.getCurrentTabTag() )){
+                case "Monedas":
+                    misvalores.Datos = (Spinner) findViewById(R.id.cboUno2);
+                    de = misvalores.Datos.getSelectedItemPosition();
+                    misvalores.Datos = (Spinner) findViewById(R.id.cboDos2);
+                    a= misvalores.Datos.getSelectedItemPosition();
+                    // resp= misvalores.datos[0][a]/misvalores.datos[0][de];
 
-            tempVal = (TextView) findViewById(R.id.txtnum2);
-            double num2 = Double.parseDouble(tempVal.getText().toString());
+                    break;
 
-            double respuesta = 0;
-            //Este es para el radiogroup y los radiobuttons
-            switch (optOperaciones.getCheckedRadioButtonId()) {
-                case R.id.optSuma:
-                    respuesta = num1 + num2;
-                    break;
-                case R.id.optResta:
-                    respuesta = num1 - num2;
-                    break;
-                case R.id.optMultiplicar:
-                    respuesta = num1 * num2;
-                    break;
-                case R.id.optDivision:
-                    respuesta = num1 / num2;
-                    break;
+
             }
-            //Este es para el spinner... -> Combobox.
-            switch (cboOperaciones.getSelectedItemPosition()){
-                case 1: //suma
-                    respuesta = num1 + num2;
-                    break;
-                case 2: //resta
-                    respuesta = num1 - num2;
-                    break;
-                case 3: //multiplicacion
-                    respuesta = num1 * num2;
-                    break;
-                case 4: //division
-                    respuesta = num1 / num2;
-                    break;
-            }
-            tempVal = (TextView) findViewById(R.id.lblRespuesta);
-            tempVal.setText("Respuesta: " + respuesta);
-        }catch (Exception err){
-            TextView temp = (TextView) findViewById(R.id.lblRespuesta);
-            temp.setText("Por favor ingrese los numeros correspondientes.");
 
-
-            Toast.makeText(getApplicationContext(),"Por favor ingrese los numeros.",Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        */
-    }
+
+    };
 }

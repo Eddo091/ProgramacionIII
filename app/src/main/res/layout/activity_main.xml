@@ -17,7 +17,7 @@
 
             <TabWidget
                 android:id="@android:id/tabs"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
             </TabWidget>
@@ -27,126 +27,169 @@
                 android:layout_height="788dp">
 
                 <LinearLayout
-                    android:id="@+id/PestañaPrincipal"
-                    android:layout_width="360dp"
-                    android:layout_height="270dp"
+                    android:id="@+id/TbhConversor"
+                    android:layout_width="match_parent"
+                    android:layout_height="798dp"
                     android:addStatesFromChildren="false"
                     android:clickable="false"
                     android:clipChildren="false"
                     android:keepScreenOn="false"
                     android:orientation="vertical">
 
+
                     <TextView
-                        android:id="@+id/lblvalor"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/lblCant"
+                        android:layout_width="328dp"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginTop="20dp"
-                        android:lineSpacingExtra="8sp"
-                        android:text="@string/inserte_valor"
-                        android:textAllCaps="false"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                        android:layout_marginTop="10dp"
+                        android:="@+id/txtCantida"
+                        android:text="@string/num1"
                         android:textColor="#000000"
+                        android:textSize="24sp" />
+
+
+                    <EditText
+                        android:id="@+id/txtnum1_"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/_0"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+
+                    <Spinner
+                        android:id="@+id/cboUno2"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp" />
+
+                    <TextView
+                        android:id="@+id/lblnum2"
+                        android:layout_width="match_parent"
+                        android:layout_height="34dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:="@+id/txtCantida"
+                        android:text="@string/num2"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+
+                    <EditText
+                        android:id="@+id/txtnum2_"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/_0"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
+
+                    <Spinner
+                        android:id="@+id/cboDos2"
+                        android:layout_width="match_parent"
+                        android:layout_height="43dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp" />
+
+                    <TextView
+                        android:id="@+id/lblrespuesta_"
+                        android:layout_width="247dp"
+                        android:layout_height="43dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:="@+id/txtCantida"
+                        android:text="@string/resp"
+                        android:textColor="#000000"
+                        android:textSize="30sp" />
+
+                    <Button
+                        android:id="@+id/BtnProcesar"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/btnProcesar"
+                        android:textSize="24sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ConversorSuperficie"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtValor"
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="24sp"
+                        android:text="@string/ingrese_valor"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textSize="24sp"
-                        android:typeface="serif"
+                        android:typeface="sans"
                         app:fontFamily="sans-serif" />
 
 
                     <TextView
-                        android:layout_width="328dp"
-                        android:layout_height="34dp"
+                        android:id="@+id/txtResultado"
+                        android:layout_width="125dp"
+                        android:layout_height="39dp"
+                        android:layout_marginStart="200dp"
+                        android:layout_marginLeft="200dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:="@+id/txtCantida"
-                        android:text="@string/Cantida" />
-
+                        android:text="@string/Respuesta" />
 
                     <TextView
-                        android:id="@+id/txtUnidad1"
-                        android:layout_width="324dp"
-                        android:layout_height="38dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="10dp"
-                        android:text="@string/Unidad1" />
+                        android:id="@+id/textView"
+                        android:layout_width="142dp"
+                        android:layout_height="31dp"
+                        android:layout_marginStart="10dp"
 
-                    <TextView
-                        android:id="@+id/textUnidad2"
-                        android:layout_width="326dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/_1" />
+
+                    <Spinner
+                        android:id="@+id/cboUno"
+                        android:layout_width="357dp"
                         android:layout_height="44dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginLeft="10dp"
-                        android:text="@string/Unidad2" />
+                        android:layout_marginTop="20dp" />
+
+                    <Spinner
+                        android:id="@+id/cboDos"
+                        android:layout_width="361dp"
+                        android:layout_height="43dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp" />
 
                     <Button
-                        android:id="@+id/BtnProcesar"
-                        android:layout_width="150dp"
+                        android:id="@+id/BtnProc"
+                        android:layout_width="206dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginLeft="80dp"
                         android:layout_marginTop="10dp"
-                        android:layout_marginLeft="70dp"
-                        android:text="@string/btnProcesar" />
-                   
+                        android:text="@string/convierte" />
 
                 </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ConversorSuperficie"
-                android:layout_width="match_parent"
-                android:layout_height="359dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/txtValor"
-                    android:layout_width="170dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginTop="10dp"
-                    android:lineSpacingExtra="24sp"
-                    android:text="@string/ingrese_valor"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textSize="24sp"
-                    android:typeface="sans"
-                    app:fontFamily="sans-serif" />
-
-
-                <TextView
-                    android:id="@+id/txtResultado"
-                    android:layout_width="125dp"
-                    android:layout_height="39dp"
-                    android:layout_marginLeft="200dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/Respuesta" />
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="142dp"
-                    android:layout_height="31dp"
-                    android:layout_marginLeft="10dp"
-
-                    android:text="1" />
-
-                <Spinner
-                    android:id="@+id/cboUno"
-                    android:layout_width="357dp"
-                    android:layout_height="44dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"/>
-
-                <Spinner
-                    android:id="@+id/cboDos"
-                    android:layout_width="361dp"
-                    android:layout_height="43dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="20dp"/>
-
-                <Button
-                    android:id="@+id/BtnProc"
-                    android:layout_width="206dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/convierte" />
-
-            </LinearLayout>
 
             </FrameLayout>
         </LinearLayout>

@@ -29,6 +29,12 @@
     <string name="tareas">Tareas</string>
     <string name="manzana">Manzana</string>
     <string name="hectar_as">Hectaréas</string>
+    <string name="_1">1</string>
+    <string name="num1">Num1</string>
+    <string name="num1">Num1</string>
+    <string name="num2">Num2</string>
+    <string name="respuesta">Respuesta: ?</string>
+    <string name="resp">Resp</string>
     <string-array name="operaciones">
 
         <item>Seleccione un elemento</item>
