@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Prueba</string>
     <string name="numero">Numero</string>
-    <string name="respuesta">Respuesta: ?</string>
     <string name="suma">Suma</string>
     <string name="resta">Resta</string>
+    <string name="Respuesta">Resultado</string>
     <string name="multiplicacion">Multiplicacion</string>
     <string name="division">Division</string>
     <string name="btnCalcular">btnCalcular</string>
@@ -15,7 +15,7 @@
     <string name="zafiro">Zafiro</string>
     <string name="rub">Rubí</string>
     <string name="depcoin">Depcoin</string>
-    <string name="ingrese_valor">Ingrese valor</string>
+    <string name="ingrese_valor">Medidas</string>
     <string name="_00">00</string>
     <string name="convierte">Convierte</string>
     <string name="respuestaa">Respuesta:???</string>
