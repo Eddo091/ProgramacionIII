@@ -10,3 +10,9 @@ Codigos de Ejmplo de la catedra de Programacion Computacional III
 * Uso de Sensores, multimedia
 * Menus 
 * Creativad e innovacion.
+
+# INNTEGRANTES EN EL PARCIAL
+* USIS017717 (Eduardo Isaías Villegas Ortiz)
+* USIS057519 (Victor)
+* USIS042919 (
+* USIS       (Jennifer Lorena Aviles Aviles) 
