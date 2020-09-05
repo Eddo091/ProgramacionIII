@@ -7,97 +7,222 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/lblnum1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        android:text="Num 1:" />
+    <TabHost
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/txtnum1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="Numero"
-        android:inputType="numberDecimal" />
-
-    <TextView
-        android:id="@+id/lblnum2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Num 2:"
-        android:layout_marginTop="120dp"
-        android:layout_marginLeft="20dp"/>
-
-    <EditText
-        android:id="@+id/txtnum2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="110dp"
-        android:ems="10"
-        android:hint="Numero"
-        android:inputType="numberDecimal" />
-
-    <Button
-        android:id="@+id/btnCalcular"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="330dp"
-        android:text="Calcular" />
-
-    <TextView
-        android:id="@+id/lblRespuesta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Respuesta: ?"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="150dp"
-        />
-
-    <RadioGroup
-        android:id="@+id/optOperaciones"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="180dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <RadioButton
-            android:id="@+id/optSuma"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Suma"
-            android:checked="true"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/optResta"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Resta" />
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-        <RadioButton
-            android:id="@+id/optMultiplicar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Multiplicacion" />
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <RadioButton
-            android:id="@+id/optDivision"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Division" />
-    </RadioGroup>
+                <LinearLayout
+                    android:id="@+id/Parte 1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-    <Spinner
-        android:id="@+id/cboOperaciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:layout_marginLeft="190dp"
-        android:entries="@array/operaciones"/>
+                    <TextView
+                        android:id="@+id/lblnum1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="40dp"
+                        android:text="@string/num_1" />
+
+                    <EditText
+                        android:id="@+id/txtnum1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="30dp"
+                        android:ems="10"
+                        android:hint="@string/numero"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal" />
+
+                    <Spinner
+                        android:id="@+id/cboOperaciones"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:entries="@array/operaciones" />
+
+                    <TextView
+                        android:id="@+id/lblnum2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/num_2" />
+
+                    <EditText
+                        android:id="@+id/txtnum2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="30dp"
+                        android:ems="10"
+                        android:hint="@string/numero"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal" />
+
+                    <Spinner
+                        android:id="@+id/cboOperaciones2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:entries="@array/operaciones" />
+
+                    <TextView
+                        android:id="@+id/lblRespuesta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="150dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginTop="30dp"
+                        android:lineSpacingExtra="24sp"
+                        android:text="@string/respuesta"
+                        android:textColor="#000000"
+                        android:textSize="24sp"
+                        android:typeface="sans"
+                        app:fontFamily="sans-serif" />
+
+                    <Button
+                        android:id="@+id/btnCalcular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="150dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/calcular" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Parte2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/lblnum_1"
+                        android:layout_width="73dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="40dp"
+                        android:text="@string/num_1"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:typeface="sans"
+                        app:fontFamily="sans-serif" />
+
+                    <EditText
+                        android:id="@+id/txtnum_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="30dp"
+                        android:ems="10"
+                        android:hint="@string/numero"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal"
+                        android:lineSpacingExtra="14sp"
+                        android:textSize="18sp"
+                        android:typeface="sans" />
+
+                    <Spinner
+                        android:id="@+id/cboOperaciones_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:entries="@array/operaciones" />
+
+                    <TextView
+                        android:id="@+id/lblnum_2"
+                        android:layout_width="73dp"
+                        android:layout_height="29dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/num_2"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:typeface="sans"
+                        app:fontFamily="sans-serif" />
+
+                    <EditText
+                        android:id="@+id/txtnum_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="80dp"
+                        android:layout_marginLeft="80dp"
+                        android:layout_marginTop="30dp"
+                        android:ems="10"
+                        android:hint="@string/numero"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal"
+                        android:lineSpacingExtra="14sp"
+                        android:textSize="18sp"
+                        android:typeface="sans" />
+
+                    <Spinner
+                        android:id="@+id/cboOperaciones_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="190dp"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="30dp"
+                        android:entries="@array/operaciones" />
+
+                    <TextView
+                        android:id="@+id/lblRespuesta2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="150dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginTop="30dp"
+                        android:lineSpacingExtra="24sp"
+                        android:text="@string/respuesta"
+                        android:textColor="#000000"
+                        android:textSize="30sp"
+                        android:typeface="sans"
+                        app:fontFamily="sans-serif" />
+
+                    <Button
+                        android:id="@+id/btnCalcular2"
+                        android:layout_width="204dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="150dp"
+                        android:layout_marginLeft="150dp"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/calcular" />
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
 </RelativeLayout>
