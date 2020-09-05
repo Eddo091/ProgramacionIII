@@ -17,8 +17,8 @@
 
             <TabWidget
                 android:id="@android:id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
             </TabWidget>
 
@@ -29,8 +29,8 @@
 
                 <LinearLayout
                     android:id="@+id/PestañaPrincipal"
-                    android:layout_width="480dp"
-                    android:layout_height="854dp"
+                    android:layout_width="360dp"
+                    android:layout_height="270dp"
                     android:addStatesFromChildren="false"
                     android:clickable="false"
                     android:clipChildren="false"
@@ -39,9 +39,10 @@
 
                     <TextView
                         android:id="@+id/lblvalor"
-                        android:layout_width="match_parent"
-                        android:layout_height="28dp"
-
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
                         android:lineSpacingExtra="8sp"
                         android:text="@string/inserte_valor"
                         android:textAllCaps="false"
@@ -51,65 +52,37 @@
                         android:typeface="serif"
                         app:fontFamily="sans-serif" />
 
-                    <EditText
-                        android:id="@+id/txtn1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="45dp"
-                        android:ems="10"
-                        android:hint="@string/_0"
-                        android:importantForAutofill="no"
-                        android:inputType="numberDecimal" />
-
-                    <RadioGroup
-                        android:id="@+id/RbG"
-                        android:layout_width="222dp"
-                        android:layout_height="150dp">
-
-                        <RadioButton
-                            android:id="@+id/RbEsme"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:checked="true"
-                            android:text="@string/esmeraldas" />
-
-                        <RadioButton
-                            android:id="@+id/RbZaf"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/zafiro" />
-
-                        <RadioButton
-                            android:id="@+id/RbRubi"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/rub" />
-
-                        <RadioButton
-                            android:id="@+id/RbCoins"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/depcoin" />
-
-                    </RadioGroup>
 
                     <TextView
-                        android:id="@+id/lblRespuesta"
-                        android:layout_width="match_parent"
-                        android:layout_height="28dp"
-                        android:lineSpacingExtra="24sp"
-                        android:text="@string/respuesta"
-                        android:textAllCaps="true"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-                        android:textColor="#000000"
-                        android:textSize="24sp"
-                        android:textStyle="italic"
-                        android:typeface="sans"
-                        app:fontFamily="sans-serif-black" />
+                        android:layout_width="328dp"
+                        android:layout_height="34dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:="@+id/txtCantida"
+                        android:text="@string/Cantida" />
+
+                    <TextView
+                        android:id="@+id/txtUnidad1"
+                        android:layout_width="324dp"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/Unidad1" />
+
+                    <TextView
+                        android:id="@+id/textUnidad2"
+                        android:layout_width="326dp"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/Unidad2" />
 
                     <Button
                         android:id="@+id/BtnProcesar"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="70dp"
                         android:text="@string/btnProcesar" />
 
                 </LinearLayout>

@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Prueba</string>
+    <string name="Cantida">Escriba la cantidad </string>
+    <string name="Unidad1">Escriba la unidad </string>
+    <string name="Unidad2">Escriba la unidad </string>
     <string name="numero">Numero</string>
-    <string name="respuesta">Respuesta: ?</string>
     <string name="suma">Suma</string>
     <string name="resta">Resta</string>
     <string name="multiplicacion">Multiplicacion</string>
@@ -27,6 +29,7 @@
     <string name="manzana">Manzana</string>
     <string name="hectar_as">Hectaréas</string>
     <string-array name="operaciones">
+
         <item>Seleccione un elemento</item>
         <item>Suma</item>
         <item>Resta</item>
