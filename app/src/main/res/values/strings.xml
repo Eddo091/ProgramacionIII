@@ -35,6 +35,8 @@
     <string name="num2">Num2</string>
     <string name="respuesta">Respuesta: ?</string>
     <string name="resp">Resp</string>
+    <string name="de">De</string>
+    <string name="a">A</string>
     <string-array name="operaciones">
 
         <item>Seleccione un elemento</item>

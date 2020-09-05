@@ -11,6 +11,7 @@ import android.widget.SpinnerAdapter;
 import android.widget.Switch;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
@@ -33,7 +34,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         num1_=findViewById( R.id.txtnum1_ );
-        num2_=findViewById( R.id.txtnum2_ );
         Resp_=findViewById( R.id.lblrespuesta_ );
         TbhConversorUno_=findViewById( R.id.TbhConversor );
         TbhConversorUno_.setup();
@@ -56,19 +56,25 @@ public class MainActivity extends Activity {
 
             switch (Objects.requireNonNull( TbhConversorUno_.getCurrentTabTag() )){
                 case "Monedas":
-                    misvalores.Datos = (Spinner) findViewById(R.id.cboUno2);
-                    de = misvalores.Datos.getSelectedItemPosition();
-                    misvalores.Datos = (Spinner) findViewById(R.id.cboDos2);
-                    a= misvalores.Datos.getSelectedItemPosition();
-                    // resp= misvalores.datos[0][a]/misvalores.datos[0][de];
+                    misvalores.val = (Spinner) findViewById(R.id.cboUno2);
+                    de = misvalores.val.getSelectedItemPosition();
+                    misvalores.val = (Spinner) findViewById(R.id.cboDos2);
+                    a= misvalores.val.getSelectedItemPosition();
+                    resp= misvalores.datos[0][a]/misvalores.datos[0][de];
 
                     break;
 
-
             }
 
+            tmpVal = (TextView) findViewById(R.id.lblrespuesta_);
+            tmpVal.setText(String.format("Respuesta: " + resp));
+
         } catch (Exception e) {
-            e.printStackTrace();
+
+            TextView temp = (TextView) findViewById(R.id.lblrespuesta_);
+
+
+            Toast.makeText(getApplicationContext(),"Error: Ingrese la cantidad",Toast.LENGTH_LONG).show();
         }
 
     };
