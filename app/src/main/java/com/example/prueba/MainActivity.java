@@ -21,10 +21,8 @@ import org.w3c.dom.Text;
 import java.util.Objects;
 
 public class MainActivity extends Activity {
-    public Button btnCalcular;
-    Button btnNuevo;
+    public
     TabHost TbhConversorUno_;
-    TabHost TbhConversorDos_;
     Valores misvalores= new Valores();
     EditText num1_;
     TextView Resp_;
@@ -46,6 +44,7 @@ public class MainActivity extends Activity {
                 Resp_.setText("");
             }
         });
+
     }
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
 
