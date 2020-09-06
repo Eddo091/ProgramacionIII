@@ -25,7 +25,6 @@ public class MainActivity extends Activity {
     TabHost TbhConversorUno_;
     TabHost ConversorSuperficie;
     Valores misvalores = new Valores();
-    Valores.Superficie Superficie= new Valores.Superficie();
     EditText num1_;
     TextView Resp_;
 
@@ -139,11 +138,11 @@ public class MainActivity extends Activity {
         double resp = 0;
         switch (ConversorSuperficie.getCurrentTabTag()) {
             case "Superficie":
-                Superficie.val2=(Spinner)findViewById( R.id.cboUno );
-                de=Superficie.val2.getSelectedItemPosition();
-                Superficie.val2=(Spinner)findViewById( R.id.cboDos );
-                a= Superficie.val2.getSelectedItemPosition();
-                resp=Superficie.SuperDatos[0][a]/Superficie.SuperDatos[0][de];
+                misvalores.val2=(Spinner)findViewById( R.id.cboUno );
+                de=misvalores.val2.getSelectedItemPosition();
+                misvalores.val2=(Spinner)findViewById( R.id.cboDos );
+                a= misvalores.val2.getSelectedItemPosition();
+                resp=misvalores.datos[0][a]/misvalores.datos[0][de];
                 break;
 
         }
