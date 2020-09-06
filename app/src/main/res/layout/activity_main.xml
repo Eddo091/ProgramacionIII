@@ -115,12 +115,24 @@
 
                     <Button
                         android:id="@+id/BtnProcesar"
-                        android:layout_width="190dp"
+                        android:layout_width="309dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="70dp"
                         android:layout_marginLeft="70dp"
                         android:layout_marginTop="10dp"
                         android:text="@string/btnProcesar"
+                        android:onClick="Convertir"
+                        android:textSize="24sp" />
+
+                    <Button
+                        android:id="@+id/btnNuevo"
+                        android:layout_width="306dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginTop="10dp"
+                        android:onClick="NuevaConversion"
+                        android:text="@string/nueva_conversion"
                         android:textSize="24sp" />
 
 

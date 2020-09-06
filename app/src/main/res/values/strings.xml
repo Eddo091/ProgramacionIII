@@ -37,6 +37,7 @@
     <string name="resp">Resp</string>
     <string name="de">De</string>
     <string name="a">A</string>
+    <string name="nueva_conversion">Nueva Conversion</string>
     <string-array name="operaciones">
 
         <item>Seleccione un elemento</item>

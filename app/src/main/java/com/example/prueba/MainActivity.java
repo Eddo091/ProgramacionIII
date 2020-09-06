@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -21,11 +22,11 @@ import java.util.Objects;
 
 public class MainActivity extends Activity {
     public Button btnCalcular;
+    Button btnNuevo;
     TabHost TbhConversorUno_;
     TabHost TbhConversorDos_;
     Valores misvalores= new Valores();
     EditText num1_;
-    EditText num2_;
     TextView Resp_;
 
     @SuppressLint("WrongViewCast")
@@ -47,10 +48,37 @@ public class MainActivity extends Activity {
         });
     }
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void Convertir(Valores view){
+
+
+
+    public void NuevaConversion(View view){
+        LimpiarTexto();
+
+
+    }
+
+    private void LimpiarTexto() {
+        num1_.setText( "" );
+        Resp_.setText( "" );
+    }
+
+    ;
+
+    private void validacion() {
+        String num1__= num1_.getText().toString();
+        if (num1__.equals( "" )){
+            num1_.setError( "Ingrese cantidad" );
+        }
+        ;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void Convertir(View view) {
         try {
+
             TextView tmpVal= (TextView) findViewById( R.id.txtnum1_ );
             double cantidad = Double.parseDouble( tmpVal.getText().toString() );
+            validacion();
             int de = 0, a = 0;
             double resp = 0;
 
@@ -77,5 +105,7 @@ public class MainActivity extends Activity {
             Toast.makeText(getApplicationContext(),"Error: Ingrese la cantidad",Toast.LENGTH_LONG).show();
         }
 
-    };
+    }
+
+    ;
 }
