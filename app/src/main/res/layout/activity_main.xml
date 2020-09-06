@@ -120,8 +120,8 @@
                         android:layout_marginStart="70dp"
                         android:layout_marginLeft="70dp"
                         android:layout_marginTop="10dp"
-                        android:text="@string/btnProcesar"
                         android:onClick="Convertir"
+                        android:text="@string/btnProcesar"
                         android:textSize="24sp" />
 
                     <Button
@@ -141,7 +141,7 @@
                 <LinearLayout
                     android:id="@+id/ConversorSuperficie"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="799dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -166,7 +166,9 @@
                         android:layout_marginStart="200dp"
                         android:layout_marginLeft="200dp"
                         android:layout_marginTop="10dp"
-                        android:text="@string/Respuesta" />
+                        android:text="@string/Respuesta"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
 
                     <TextView
                         android:id="@+id/textView"
@@ -176,6 +178,17 @@
 
                         android:layout_marginLeft="10dp"
                         android:text="@string/_1" />
+
+                    <EditText
+                        android:id="@+id/txtnumSuper"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:hint="@string/_0"
+                        android:importantForAutofill="no"
+                        android:inputType="numberDecimal"
+                        android:textColor="#000000"
+                        android:textSize="24sp" />
 
                     <Spinner
                         android:id="@+id/cboUno"
@@ -200,7 +213,20 @@
                         android:layout_marginStart="80dp"
                         android:layout_marginLeft="80dp"
                         android:layout_marginTop="10dp"
-                        android:text="@string/convierte" />
+                        android:text="@string/convierte"
+                        android:onClick="SuperConvertir"
+                        android:textSize="18sp" />
+
+                    <Button
+                        android:id="@+id/btnNuevo2"
+                        android:layout_width="224dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginTop="10dp"
+                        android:onClick="NuevaConversion"
+                        android:text="@string/nueva_conversion"
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
