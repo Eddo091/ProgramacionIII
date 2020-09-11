@@ -11,8 +11,11 @@ Codigos de Ejmplo de la catedra de Programacion Computacional III
 * Menus 
 * Creativad e innovacion.
 
-# INNTEGRANTES EN EL PARCIAL
+# Integrantes
 * USIS017717 (Eduardo Isaías Villegas Ortiz)
 * USIS042919 (Victor  Manuel Serpas Santos )
 * USIS048019 (Karla Mariela Muñoz Torres)
-* USIS057519 (Jennifer Lorena Aviles Aviles) 
+* USIS057519 (Jennifer Lorena Aviles Aviles)
+
+# Proyecto Tienda de mascotas
+
