@@ -35,6 +35,14 @@
                     android:orientation="vertical">
 
 
+                    <Spinner
+                        android:id="@+id/spnTipo_2"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginTop="65dp" />
+
                     <TextView
                         android:id="@+id/lblDe"
                         android:layout_width="wrap_content"
@@ -52,8 +60,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="70dp"
                         android:layout_marginLeft="70dp"
-                        android:layout_marginTop="97dp"
-                        android:entries="@array/ConversorPropio" />
+                        android:layout_marginTop="97dp" />
 
                     <TextView
                         android:id="@+id/lblA"
@@ -72,8 +79,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="70dp"
                         android:layout_marginLeft="70dp"
-                        android:layout_marginTop="160dp"
-                        android:entries="@array/ConversorPropio" />
+                        android:layout_marginTop="160dp" />
 
                     <EditText
                         android:id="@+id/txtnum1"
@@ -119,6 +125,14 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <Spinner
+                        android:id="@+id/spnTipo_"
+                        android:layout_width="190dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginTop="65dp" />
+
                     <TextView
                         android:id="@+id/lblDe2"
                         android:layout_width="wrap_content"
@@ -136,8 +150,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="70dp"
                         android:layout_marginLeft="70dp"
-                        android:layout_marginTop="97dp"
-                        android:entries="@array/Superficie" />
+                        android:layout_marginTop="99dp" />
 
                     <TextView
                         android:id="@+id/lblA2"
@@ -156,8 +169,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="70dp"
                         android:layout_marginLeft="70dp"
-                        android:layout_marginTop="160dp"
-                        android:entries="@array/Superficie" />
+                        android:layout_marginTop="160dp" />
 
                     <EditText
                         android:id="@+id/txtnum1_2"

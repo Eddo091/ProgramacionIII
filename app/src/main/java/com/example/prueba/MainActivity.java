@@ -3,6 +3,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TabHost;
@@ -54,35 +57,42 @@ public class MainActivity extends AppCompatActivity {
             double cantidad = Double.parseDouble(tmpVal.getText().toString());
             int de = 0, a = 0;
             double resp = 0;
-            switch (tbhConversor.getCurrentTabTag()){
+            final Spinner spnTipo = (Spinner)findViewById(R.id.spnTipo_);
+            final Spinner spnDe = (Spinner) findViewById( R.id.spnDe );
+            final Spinner spnA = (Spinner) findViewById( R.id.spnA );
 
-                case "Monedas":
-                    misvalores.val   = (Spinner) findViewById(R.id.spnDe);
-                    de = misvalores.val .getSelectedItemPosition();
-                    misvalores.val  = (Spinner) findViewById(R.id.spnA);
-                    a = misvalores.val .getSelectedItemPosition();
-                    resp = misvalores.datos [0][a] / misvalores.datos [0][de];
-                    tmpVal = (TextView) findViewById(R.id.lblRespu );
-                    tmpVal.setText(String.format("Por el valor de: "+ cantidad  + " Respuesta " + resp  ));
-                    break;
+            spnTipo.setOnItemSelectedListener( new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                    spnDe.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,misvalores.obtenerConversor(position) ));
+                    spnA.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item,misvalores.obtenerConversor(position) ));
+                }
 
-                case "Superficie":
-                    misvalores.val   = (Spinner) findViewById(R.id.spnDe2);
-                    de = misvalores.val .getSelectedItemPosition();
-                    misvalores.val  = (Spinner) findViewById(R.id.spnA2);
-                    a = misvalores.val .getSelectedItemPosition();
-                    resp = misvalores.datos [0][a] / misvalores.datos [0][de];
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {
 
-                    tmpVal=(TextView)findViewById( R.id.lblResp2 );
-                    tmpVal.setText(String.format("Por el valor de: "+ cantidad  + " Respuesta " + resp  ));
-                    break;
+                }
 
-            }
+
+            } );
+
+            Button btnConvertir = (Button)findViewById(R.id.btnConvertir);
+            btnConvertir.setOnClickListener( new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    TextView tempVal = (TextView)findViewById(R.id.txtnum1);
+                    double cantidad = Double.parseDouble(tempVal.getText().toString());
+                    int d = spnDe.getSelectedItemPosition();
+                    int a = spnA.getSelectedItemPosition();
+                    int tipo = spnTipo.getSelectedItemPosition();
+                    Double respuesta = misvalores.convertir(tipo,d,a,cantidad);
+                    tempVal = (TextView)findViewById(R.id.lblRespu);
+                    tempVal.setText("Respuesta: "+ respuesta);
+                }
+            } );
 
 
         }catch (Exception err){
-            TextView temp = (TextView) findViewById(R.id.lblRespu );
-            TextView temp2 = (TextView) findViewById(R.id.lblResp2 );
             Toast.makeText(getApplicationContext(),"Error: Valor incorrecto",Toast.LENGTH_LONG).show();
 
         }

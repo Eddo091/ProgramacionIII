@@ -7,25 +7,4 @@
     <string name="convertir">CONVERTIR</string>
     <string name="resultado">RESULTADO</string>
 
-    <string-array name="Superficie">
-        <item>Pie cuadrado</item>
-        <item>Vara cuadrada</item>
-        <item>Yarda cuadrada</item>
-        <item> Metro cuadrado</item>
-        <item>Tarea</item>
-        <item>Manzana</item>
-        <item>Hectarea</item>
-
-    </string-array>
-
-    <string-array name="ConversorPropio">
-        <item>Zafiro</item>
-        <item>Rubí</item>
-        <item>Esmeralda</item>
-        <item> Rupia</item>
-
-
-    </string-array>
-
-
 </resources>
