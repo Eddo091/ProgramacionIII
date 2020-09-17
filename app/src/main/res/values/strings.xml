@@ -10,6 +10,10 @@
     <string name="todo">TODO</string>
     <string name="to">TODO</string>
     <string name="t">TODO</string>
+    <string name="codigo">codigo</string>
+    <string name="nombre_productor">nombre de producto</string>
+    <string name="fecha">fecha de venta</string>
+    <string name="precio">precio</string>
 
 
 </resources>
