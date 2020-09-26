@@ -11,8 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:ems="10"
+        android:hint="@string/buscar"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:text="@string/Buscar"
+        android:text="@string/busca"
         tools:layout_editor_absoluteX="22dp"
         tools:layout_editor_absoluteY="30dp" />
 
@@ -20,9 +22,11 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="113dp"
         android:layout_height="45dp"
+        android:layout_marginStart="340dp"
         android:layout_marginLeft="340dp"
         android:layout_marginTop="660dp"
         android:clickable="true"
+        android:focusable="true"
         tools:srcCompat="@tools:sample/avatars" />
 
     <androidx.recyclerview.widget.RecyclerView
