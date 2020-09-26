@@ -14,8 +14,6 @@
     <string name="nombre_productor">nombre de producto</string>
     <string name="fecha">fecha de venta</string>
     <string name="precio">precio</string>
- <string name="Buscar">Buscar</string>
-
 
 
 </resources>

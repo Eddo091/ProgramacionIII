@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnInsertar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="Insertar"
+        android:textColor="#FFFFFF"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="301dp"/>
+
+    <Button
+        android:id="@+id/btnModificar"
+        android:layout_width="105dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="93dp"
+        android:text="Modificar"
+        tools:layout_editor_absoluteX="111dp"
+        tools:layout_editor_absoluteY="300dp" />
+
+    <Button
+        android:id="@+id/btnEliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="205dp"
+        android:text="Eliminar"
+        tools:layout_editor_absoluteX="223dp"
+        tools:layout_editor_absoluteY="301dp" />
+
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="300dp"
+        android:text="Buscar"
+        tools:layout_editor_absoluteX="319dp"
+        tools:layout_editor_absoluteY="300dp" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/codigo" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="5dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/nombre_productor" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName5"
+        android:layout_width="354dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:layout_marginLeft="5dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/fecha" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName6"
+        android:layout_width="357dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:layout_marginLeft="5dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/precio" />
+
+
+</RelativeLayout>
