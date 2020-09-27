@@ -30,6 +30,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ltsTienda"
         android:layout_width="match_parent"
         android:layout_height="644dp"
         android:layout_below="@+id/txtbuscar"

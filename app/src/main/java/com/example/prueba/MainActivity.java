@@ -1,10 +1,14 @@
 package com.example.prueba;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -49,11 +54,50 @@ public class MainActivity extends AppCompatActivity {
         buscarTienda();
 
 }
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
 
-    void agregarTienda(String accion, String[] dataAmigo){
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_tienda, menu);
+
+        AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo)menuInfo;
+        mitienda.moveToPosition(adapterContextMenuInfo.position);
+        menu.setHeaderTitle(mitienda.getString(1));
+    }
+
+    @Override
+    public boolean onContextItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.mnxAgregar:
+                agregarTienda("nuevo", new String[]{});
+                return true;
+
+            case R.id.mnxModificar:
+                String[] dataAmigo = {
+                        mitienda.getString(0),
+                        mitienda.getString(1),
+                        mitienda.getString(2),
+                        mitienda.getString(3),
+                        mitienda.getString(4)
+                };
+                agregarTienda("modificar",dataAmigo);
+                return true;
+
+            case R.id.mnxEliminar:
+
+                return true;
+
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+
+    void agregarTienda(String accion, String[] dataTienda){
         Bundle enviarParametros = new Bundle();
         enviarParametros.putString("accion",accion);
-        enviarParametros.putStringArray("dataAmigo",dataAmigo);
+        enviarParametros.putStringArray("dataTienda",dataTienda);
         Intent agregarTienda= new Intent(MainActivity.this, agregarTienda.class);
         agregarTienda.putExtras(enviarParametros);
         startActivity(agregarTienda);
@@ -92,12 +136,20 @@ public class MainActivity extends AppCompatActivity {
             mostrarDatosTienda();
         } else{ //No tengo registro que mostrar.
             Toast.makeText(getApplicationContext(), "No hay registros de cliente que mostrar",Toast.LENGTH_LONG).show();
-            //Intent agregarTienda = new Intent(MainActivity.this, agregarTienda.class);
-            //startActivity(agregarTienda);
+            Intent agregarTienda = new Intent(MainActivity.this, agregarTienda.class);
+            startActivity(agregarTienda);
 
         }
     }
     void mostrarDatosTienda(){
-
+        ListView ltsTienda = (ListView)findViewById(R.id.ltsTienda);
+        ArrayList<String> stringArrayList = new ArrayList<String>();
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, stringArrayList);
+        ltsTienda.setAdapter(stringArrayAdapter);
+        do {
+            stringArrayList.add(mitienda.getString(1));
+        }while(mitienda.moveToNext());
+        stringArrayAdapter.notifyDataSetChanged();
+        registerForContextMenu(ltsTienda);
     }
 }
