@@ -11,6 +11,7 @@
  <string name="producto">Producto</string>
  <string name="fecha">Fecha</string>
  <string name="precio">Precio</string>
+    <string name="Mostrar">Mostrar</string>
 
 
 </resources>

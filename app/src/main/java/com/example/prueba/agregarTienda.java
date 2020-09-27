@@ -39,11 +39,15 @@ public class agregarTienda extends AppCompatActivity {
                 miDB.mantenimientoTienda( accion, data );
 
                 Toast.makeText( getApplicationContext(), "Registro de amigo insertado con exito", Toast.LENGTH_LONG ).show();
-                Intent mostrarAmigos = new Intent( agregarTienda.this, MainActivity.class );
-                startActivity( mostrarAmigos );
+                mostrarListaTienda();
             }
         } );
         mostrarDatosAmigo();
+    }
+
+    void mostrarListaTienda(){
+        Intent mostrarTienda = new Intent(agregarTienda.this, MainActivity.class);
+        startActivity(mostrarTienda);
     }
 
     void mostrarDatosAmigo() {
