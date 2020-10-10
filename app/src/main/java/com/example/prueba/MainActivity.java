@@ -43,8 +43,8 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
-    BD midb;
-    Cursor mitienda;
+   // BD midb;
+  Cursor mitienda;
     ArrayList<String> stringArrayList = new ArrayList<String>();
     ArrayList<String> copyStringArrayList = new ArrayList<String>();
     ArrayAdapter<String> stringArrayAdapter;
@@ -55,14 +55,12 @@ public class MainActivity extends AppCompatActivity {
     private class ObtenerDatosTiendaaa extends AsyncTask <Void,Void, String> {
         HttpURLConnection urlConnection;
         private Void[] voids;
-
-        //No me dejó generar el doinbackground.
         @Override
         protected  String doInBackground (Void... voids){
             this.voids = voids;
             StringBuilder result= new StringBuilder();
             try {
-            URL url = new URL( "http://10.0.2.2:5984/mitienda/_design/Tienda/_view/mi-tienda" );
+            URL url = new URL( "http://192.168.0.15:5984/mitienda/_design/Tienda/_view/mi-tienda" );
                 urlConnection =(HttpURLConnection)url.openConnection();
                 urlConnection.setRequestMethod( "GET" );
                 InputStream in = new BufferedInputStream( urlConnection.getInputStream() );
@@ -111,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
         ObtenerDatosTiendaaa  objObtenerTiendaa = new ObtenerDatosTiendaaa();
         objObtenerTiendaa.execute( );
-        
+
 
     }
 
