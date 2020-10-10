@@ -3,6 +3,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -24,8 +25,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.widget.Toast;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import android.database.Cursor;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 import java.util.ArrayList;
 
@@ -37,23 +49,72 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> copyStringArrayList = new ArrayList<String>();
     ArrayAdapter<String> stringArrayAdapter;
 
+    JSONArray datosJSON;
+    JSONObject jsonObject;
+
+    private class ObtenerDatosTiendaaa extends AsyncTask <Void,Void, String> {
+        HttpURLConnection urlConnection;
+        private Void[] voids;
+
+        //No me dejó generar el doinbackground.
+        @Override
+        protected  String doInBackground (Void... voids){
+            this.voids = voids;
+            StringBuilder result= new StringBuilder();
+            try {
+            URL url = new URL( "http://10.0.2.2:5984/mitienda/_design/Tienda/_view/mi-tienda" );
+                urlConnection =(HttpURLConnection)url.openConnection();
+                urlConnection.setRequestMethod( "GET" );
+                InputStream in = new BufferedInputStream( urlConnection.getInputStream() );
+                BufferedReader reader= new BufferedReader (new InputStreamReader(in));
+                String linea;
+                while ((linea=reader.readLine()) != null){
+                    result.append (linea);
+                }
+            } catch (Exception err){}
+            return result.toString();
+        }
+        @Override
+        protected  void onPostExecute (String s) {
+         super.onPostExecute (s);
+         try{
+         jsonObject= new JSONObject( s );
+         datosJSON= jsonObject.getJSONArray("rows");
+         MostrarDatosTiendaa();
+         } catch (Exception ex){
+             Toast.makeText(MainActivity.this, "Error al parsear los datos" + ex.getMessage(), Toast.LENGTH_LONG).show();
+         }
+        }
+    }
+
+    private void MostrarDatosTiendaa () {
+        ListView ltsTienda = findViewById( R.id.ltsTienda );
+        try {
+            final ArrayList<String> arrayList = new ArrayList<>();
+            final ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<>( MainActivity.this, android.R.layout.simple_list_item_1, arrayList );
+            ltsTienda.setAdapter( stringArrayAdapter );
+            for (int i = 0; i < datosJSON.length(); i++) {
+                stringArrayAdapter.add( datosJSON.getJSONObject( i ).getJSONObject( "value" ).getString( "nombre" ) );
+            }
+            stringArrayAdapter.notifyDataSetChanged();
+            registerForContextMenu( ltsTienda );
+        } catch (Exception ex) {
+            Toast.makeText(MainActivity.this, "Error al mostrar los datos" + ex.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.buscar );
 
-        FloatingActionButton btnAgregarTienda = (FloatingActionButton) findViewById( R.id.btnagregarTienda );
-        btnAgregarTienda.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                agregarTienda( "nuevo", new String[]{} );
-            }
-        } );
-        obtenerDatosTienda();
-        buscarTienda();
+        ObtenerDatosTiendaaa  objObtenerTiendaa = new ObtenerDatosTiendaaa();
+        objObtenerTiendaa.execute( );
+        
 
     }
+
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
@@ -65,122 +126,6 @@ public class MainActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) menuInfo;
         mitienda.moveToPosition( adapterContextMenuInfo.position );
         menu.setHeaderTitle( mitienda.getString( 1 ) );
-    }
-
-    @Override
-    public boolean onContextItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.mnxAgregar:
-                agregarTienda( "nuevo", new String[]{} );
-                return true;
-
-            case R.id.mnxModificar:
-                String[] dataAmigo = {
-                        mitienda.getString( 0 ),
-                        mitienda.getString( 1 ),
-                        mitienda.getString( 2 ),
-                        mitienda.getString( 3 ),
-                        mitienda.getString( 4 )
-                };
-                agregarTienda( "modificar", dataAmigo );
-                return true;
-
-            case R.id.mnxEliminar:
-                AlertDialog eliminarShop =  eliminarProducto();
-                eliminarShop.show();
-
-                return true;
-
-            default:
-                return super.onContextItemSelected( item );
-        }
-    }
-
-
-    void agregarTienda(String accion, String[] dataTienda) {
-        Bundle enviarParametros = new Bundle();
-        enviarParametros.putString( "accion", accion );
-        enviarParametros.putStringArray( "dataTienda", dataTienda );
-        Intent agregarTienda = new Intent( MainActivity.this, agregarTienda.class );
-        agregarTienda.putExtras( enviarParametros );
-        startActivity( agregarTienda );
-    }
-
-    void buscarTienda() {
-        final TextView tempVal = (TextView) findViewById( R.id.txtbuscar );
-        tempVal.addTextChangedListener( new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                stringArrayList.clear();
-                if (tempVal.getText().toString().trim().length() < 1) {//no hay texto para buscar
-                    stringArrayList.addAll( copyStringArrayList );
-                } else {//hacemos la busqueda
-                    for (String amigo : copyStringArrayList) {
-                        if (amigo.toLowerCase().contains( tempVal.getText().toString().trim().toLowerCase() )) {
-                            stringArrayList.add( amigo );
-                        }
-                    }
-                }
-                stringArrayAdapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
-        } );
-    }
-
-    void obtenerDatosTienda() {
-        midb = new BD( getApplicationContext(), "", null, 1 );
-        mitienda = midb.mantenimientoTienda( "consultar", null );
-        if (mitienda.moveToFirst()) { //hay registro en la BD que mostrar
-            mostrarDatosTienda();
-        } else { //No tengo registro que mostrar.
-            Toast.makeText( getApplicationContext(), "No hay registros de cliente que mostrar", Toast.LENGTH_LONG ).show();
-            agregarTienda("nuevo", new String[]{});
-
-
-        }
-    }
-
-    void mostrarDatosTienda() {
-        ListView ltsTienda = (ListView) findViewById( R.id.ltsTienda );
-        ArrayList<String> stringArrayList = new ArrayList<String>();
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>( MainActivity.this, android.R.layout.simple_list_item_1, stringArrayList );
-        ltsTienda.setAdapter( stringArrayAdapter );
-        do {
-            stringArrayList.add( mitienda.getString( 1 ) );
-        } while (mitienda.moveToNext());
-        stringArrayAdapter.notifyDataSetChanged();
-        registerForContextMenu( ltsTienda );
-    }
-
-    AlertDialog eliminarProducto() {
-        AlertDialog.Builder confirmacion = new AlertDialog.Builder( MainActivity.this );
-        confirmacion.setTitle( mitienda.getString( 1 ) );
-        confirmacion.setMessage( "Esta seguro de eliminar el registro?" );
-        confirmacion.setPositiveButton( "Si", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                midb.mantenimientoTienda( "eliminar", new String[]{mitienda.getString( 0 )} );
-                obtenerDatosTienda();
-                Toast.makeText( getApplicationContext(), "Producto eliminado con exito.", Toast.LENGTH_SHORT ).show();
-                dialogInterface.dismiss();
-            }
-        } );  confirmacion.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(getApplicationContext(), "Eliminacion cancelada por el usuario.",Toast.LENGTH_SHORT).show();
-                dialogInterface.dismiss();
-            }
-        });
-        return confirmacion.create();
     }
 
 
