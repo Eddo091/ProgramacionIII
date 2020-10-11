@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class agregarTienda extends AppCompatActivity {
-    BD miDB;
+/*    BD miDB;
     String accion = "nuevo";
     String idTienda = "0";
 
@@ -69,5 +69,5 @@ public class agregarTienda extends AppCompatActivity {
         } catch (Exception ex) {
             ///
         }
-    }
+    }*/
 }
