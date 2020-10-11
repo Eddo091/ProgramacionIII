@@ -2,22 +2,15 @@
 
    <string name="app_name">Prueba</string>
     <string name="busca">Busca</string>
- <string name="buscar">buscar</string>
- <string name="insertar">Insertar</string>
- <string name="eliminar">Eliminar</string>
- <string name="modificar">Modificar</string>
- <string name="buscarr">Buscar</string>
- <string name="codigo">Codigo</string>
  <string name="producto">Producto</string>
- <string name="fecha">Fecha</string>
- <string name="precio">Precio</string>
+
     <string name="Mostrar">Mostrar</string>
     <string name="nombre">Nombre</string>
+
     <string name="codigo">Codigo</string>
-    <string name="codigo">Codigo</string>
+
     <string name="precio">Precio</string>
-    <string name="precio">Precio</string>
-    <string name="guardar">Guardar</string>
+
     <string name="guardar">Guardar</string>
 
 
