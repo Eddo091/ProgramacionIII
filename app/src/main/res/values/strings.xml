@@ -1,17 +1,13 @@
 <resources>
 
    <string name="app_name">Prueba</string>
-    <string name="busca">Busca</string>
  <string name="producto">Producto</string>
-
     <string name="Mostrar">Mostrar</string>
     <string name="nombre">Nombre</string>
-
     <string name="codigo">Codigo</string>
-
     <string name="precio">Precio</string>
-
     <string name="guardar">Guardar</string>
+    <string name="buscar">Buscar</string>
 
 
 </resources>
