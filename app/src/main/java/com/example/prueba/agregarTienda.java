@@ -18,23 +18,21 @@ public class agregarTienda extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.menu );
-        Button btnGuardarTienda = (Button) findViewById( R.id.btnInsertar );
+        Button btnGuardarTienda = (Button) findViewById( R.id.btnGuardarTienda );
         btnGuardarTienda.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView tempVal = (TextView) findViewById( R.id.txtproducto );
+                TextView tempVal = (TextView) findViewById( R.id.txtNombreProducto );
                 String producto = tempVal.getText().toString();
 
-                tempVal = (TextView) findViewById( R.id.txtPrecio );
+                tempVal = (TextView) findViewById( R.id.txtPrecioProducto );
                 String precio = tempVal.getText().toString();
 
-                tempVal = (TextView) findViewById( R.id.txtcodigo );
+                tempVal = (TextView) findViewById( R.id.txtcodigotienda );
                 String codigo = tempVal.getText().toString();
 
-                tempVal = (TextView) findViewById( R.id.txtFecha );
-                String fecha = tempVal.getText().toString();
 
-                String[] data = {idTienda, codigo, producto, fecha, precio};
+                String[] data = {idTienda, codigo, producto, precio};
                 miDB = new BD( getApplicationContext(), "", null, 1 );
                 miDB.mantenimientoTienda( accion, data );
 
@@ -55,21 +53,18 @@ public class agregarTienda extends AppCompatActivity {
             Bundle recibirParametros = getIntent().getExtras();
             accion = recibirParametros.getString( "accion" );
             if (accion.equals( "modificar" )) {
-                String[] dataAmigo = recibirParametros.getStringArray( "dataAmigo" );
+                String[] dataTienda = recibirParametros.getStringArray( "dataTienda" );
 
-                idTienda = dataAmigo[0];
+                idTienda = dataTienda[0];
 
-                TextView tempVal = (TextView) findViewById( R.id.txtcodigo );
-                tempVal.setText( dataAmigo[1] );
+                TextView tempVal = (TextView) findViewById( R.id.txtcodigotienda);
+                tempVal.setText( dataTienda[1] );
 
-                tempVal = (TextView) findViewById( R.id.txtproducto );
-                tempVal.setText( dataAmigo[2] );
+                tempVal = (TextView) findViewById( R.id.txtNombreProducto);
+                tempVal.setText( dataTienda[2] );
 
-                tempVal = (TextView) findViewById( R.id.txtFecha );
-                tempVal.setText( dataAmigo[3] );
-
-                tempVal = (TextView) findViewById( R.id.txtPrecio );
-                tempVal.setText( dataAmigo[4] );
+                tempVal = (TextView) findViewById( R.id.txtPrecioProducto );
+                tempVal.setText( dataTienda[3] );
             }
         } catch (Exception ex) {
             ///
