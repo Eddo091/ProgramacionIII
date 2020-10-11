@@ -22,7 +22,6 @@ import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.widget.Toast;
 
@@ -51,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
 
     JSONArray datosJSON;
     JSONObject jsonObject;
+
+
+
+
 
     private class ObtenerDatosTiendaaa extends AsyncTask <Void,Void, String> {
         HttpURLConnection urlConnection;
@@ -101,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void agregarNuevoTienda(){
+        Intent nuevoTienda = new Intent(MainActivity.this, agregarTienda.class);
+        startActivity(nuevoTienda);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,8 +117,17 @@ public class MainActivity extends AppCompatActivity {
         ObtenerDatosTiendaaa  objObtenerTiendaa = new ObtenerDatosTiendaaa();
         objObtenerTiendaa.execute( );
 
+        FloatingActionButton btnAgregarNuevoTienda = findViewById(R.id.btnagregarTienda);
+        btnAgregarNuevoTienda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            agregarNuevoTienda();
+            }
+        });
 
     }
+
+
 
 
     @Override
@@ -124,6 +140,8 @@ public class MainActivity extends AppCompatActivity {
         AdapterView.AdapterContextMenuInfo adapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo) menuInfo;
         mitienda.moveToPosition( adapterContextMenuInfo.position );
         menu.setHeaderTitle( mitienda.getString( 1 ) );
+
+
     }
 
 

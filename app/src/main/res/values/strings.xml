@@ -12,6 +12,12 @@
  <string name="fecha">Fecha</string>
  <string name="precio">Precio</string>
     <string name="Mostrar">Mostrar</string>
+    <string name="nombre">Nombre</string>
+    <string name="codigo">Codigo</string>
+    <string name="codigo">Codigo</string>
+    <string name="precio">Precio</string>
+    <string name="precio">Precio</string>
+    <string name="guardar">Guardar</string>
 
 
 </resources>
